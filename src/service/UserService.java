@@ -1,5 +1,8 @@
 package service;
 
+import model.History;
+import model.HistoryType;
+
 import java.util.UUID;
 
 public class UserService extends BaseService{
@@ -11,6 +14,11 @@ public class UserService extends BaseService{
 
     @Override
     protected Object getById(UUID id) {
+        return null;
+    }
+
+    public History[] getHistory(final UUID userId, final HistoryType historyType){
+
         return null;
     }
 }
