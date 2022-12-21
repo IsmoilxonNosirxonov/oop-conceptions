@@ -3,7 +3,7 @@ package model;
 import java.util.UUID;
 
 
-public class BaseModel {
+public abstract class BaseModel {
     protected UUID id;
     protected String fullName;
 
