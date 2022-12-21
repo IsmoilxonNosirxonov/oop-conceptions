@@ -2,15 +2,15 @@ package service;
 
 import model.User;
 
+import model.History;
+import model.HistoryType;
+
 import java.util.UUID;
 
 public class UserService extends BaseService{
 
     @Override
     protected boolean add(Object object) {
-        User user=(User) object;
-
-
         return false;
     }
 
