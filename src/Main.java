@@ -64,13 +64,17 @@ public class Main {
                                     String receiverCardNumber = scannerStr.nextLine();
                                     System.out.println("Enter amount");
                                     double amount = scannerInt.nextDouble();
-                                    System.out.println(p2pService.SendMoney(userService.userCardNumber(currentUser), receiverCardNumber, amount));
+                                    if(p2pService.SendMoney(userService.userCardNumber(currentUser), receiverCardNumber, amount, currentUser)){
+                                        System.out.println("Money has succesfully transfered");
+                                    }else{
+                                        System.out.println("Transaction error!");
+                                    }
                                 }
                                 case 4 -> {
                                     for (History history : p2pService.histories) {
                                         if(history != null){
                                             if(history.getReceiverCardNumber().equals(userService.userCardNumber(currentUser))){
-                                                System.out.println("Reciever: " + history.getSenderCardNumber());
+                                                System.out.println("Sender: " + history.getSenderCardNumber());
                                                 System.out.println("Amount: " + history.getAmount());
                                             }
                                         }
@@ -80,7 +84,7 @@ public class Main {
                                     for (History history : p2pService.histories) {
                                         if(history != null){
                                             if(history.getSenderCardNumber().equals(userService.userCardNumber(currentUser))){
-                                                System.out.println("Sender: " + history.getReceiverCardNumber());
+                                                System.out.println("Reciever: " + history.getReceiverCardNumber());
                                                 System.out.println("Amount: " + history.getAmount());
                                             }
                                         }
