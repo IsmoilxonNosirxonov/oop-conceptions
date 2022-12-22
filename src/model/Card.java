@@ -5,10 +5,24 @@ import java.util.UUID;
 public class Card extends BaseModel{
     private String cardNumber;
     private String expiryDate;
-    private String ownerName;
+    private String fullName;
     private double balance;
+    private UUID userid;
 
-    private UUID userId;
+    public Card(String cardNumber, String expiryDate, String fullName, double balance) {
+        this.cardNumber = cardNumber;
+        this.expiryDate = expiryDate;
+        this.fullName = fullName;
+        this.balance = balance;
+    }
+
+    public UUID getUserid() {
+        return userid;
+    }
+
+    public void setUserid(UUID userid) {
+        this.userid = userid;
+    }
 
     public Card() {
         super();
@@ -30,12 +44,12 @@ public class Card extends BaseModel{
         this.expiryDate = expiryDate;
     }
 
-    public String getOwnerName() {
-        return ownerName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setOwnerName(String ownerName) {
-        this.ownerName = ownerName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public double getBalance() {
@@ -46,11 +60,4 @@ public class Card extends BaseModel{
         this.balance = balance;
     }
 
-    public UUID getUserId() {
-        return userId;
-    }
-
-    public void setUserId(UUID userId) {
-        this.userId = userId;
-    }
 }
