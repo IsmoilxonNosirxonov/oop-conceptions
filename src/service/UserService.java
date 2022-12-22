@@ -1,21 +1,58 @@
 package service;
 
-import model.History;
-import model.HistoryType;
-
+import model.Card;
 import model.User;
 
 import java.util.UUID;
 
 public class UserService extends BaseService{
 
-    @Override
-    protected boolean add(Object object) {
-        return false;
-    }
 
+    public static UUID currentUserId;
+    private int index = 0;
     @Override
-    protected Object getById(UUID id) {
+    public boolean add(Object object) {
+        User user = (User) object;
+        for (User user1 : userList) {
+            if(user1 != null){
+                if(user1.getFullName().equals(user.getFullName())){
+                    return false;
+                }
+            }
+        }
+        userList[index++] = user;
+        return true;
+    }
+    public User login(String username, String password){
+        for (User user:userList) {
+            if(user != null){
+                if(user.getFullName().equals(username) && user.getPassword().equals(password)){
+                    currentUserId = user.getId();
+                    return user;
+                }
+            }
+        }
+        return null;
+    }
+    @Override
+    public User getById(UUID id) {
+        for (User user : userList) {
+            if(user != null){
+                if(user.getId().equals(id)){
+                    return user;
+                }
+            }
+        }
+        return null;
+    }
+    public String userCardNumber(User user){
+        for (Card card : cardList) {
+            if(card != null){
+                if(card.getOwnerName().equals(user.getFullName())){
+                    return card.getCardNumber();
+                }
+            }
+        }
         return null;
     }
 }

@@ -2,8 +2,15 @@ package model;
 
 public class User extends BaseModel{
     private String phoneNumber;
+    private String fullName;
     private String password;
 
+    public User(String fullname, String phoneNumber, String password) {
+        super();
+        this.fullName = fullname;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+    }
     public User() {
         super();
     }
@@ -22,5 +29,23 @@ public class User extends BaseModel{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "phoneNumber='" + phoneNumber + '\'' +
+                ", password='" + password + '\'' +
+                ", id=" + id +
+                ", fullName='" + fullName + '\'' +
+                '}';
     }
 }

@@ -5,7 +5,8 @@ import java.util.UUID;
 public class History {
 
     private UUID id;
-    private UUID cardId;
+    private String senderCardNumber;
+    private String receiverCardNumber;
     private double amount;
     private HistoryType historyType;
 
@@ -13,23 +14,30 @@ public class History {
         this.id = UUID.randomUUID();
     }
 
-    public History(UUID cardId, double amount, HistoryType historyType) {
-        this.cardId = cardId;
+    public History(String senderCardNumber, String receiverCardNumber, double amount) {
+        this.senderCardNumber = senderCardNumber;
+        this.receiverCardNumber = receiverCardNumber;
         this.amount = amount;
-        this.historyType = historyType;
     }
 
     public UUID getId() {
         return id;
     }
 
-
-    public UUID getCardId() {
-        return cardId;
+    public String getSenderCardNumber() {
+        return senderCardNumber;
     }
 
-    public void setCardId(UUID cardId) {
-        this.cardId = cardId;
+    public void setSenderCardNumber(String senderCardNumber) {
+        this.senderCardNumber = senderCardNumber;
+    }
+
+    public String getReceiverCardNumber() {
+        return receiverCardNumber;
+    }
+
+    public void setReceiverCardNumber(String receiverCardNumber) {
+        this.receiverCardNumber = receiverCardNumber;
     }
 
     public double getAmount() {
@@ -46,5 +54,16 @@ public class History {
 
     public void setHistoryType(HistoryType historyType) {
         this.historyType = historyType;
+    }
+
+    @Override
+    public String toString() {
+        return "History{" +
+                "id=" + id +
+                ", senderCardNumber='" + senderCardNumber + '\'' +
+                ", receiverCardNumber='" + receiverCardNumber + '\'' +
+                ", amount=" + amount +
+                ", historyType=" + historyType +
+                '}';
     }
 }
