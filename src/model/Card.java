@@ -14,6 +14,14 @@ public class Card extends BaseModel{
         super();
     }
 
+    public Card(String cardNumber, String expiryDate, String ownerName, double balance, UUID userId) {
+        this.cardNumber = cardNumber;
+        this.expiryDate = expiryDate;
+        this.ownerName = ownerName;
+        this.balance = balance;
+        this.userId = userId;
+    }
+
     public String getCardNumber() {
         return cardNumber;
     }
