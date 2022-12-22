@@ -1,6 +1,7 @@
 package service;
 
 import model.Card;
+import model.User;
 
 import java.util.UUID;
 
@@ -22,11 +23,25 @@ private int index=0;
 
     @Override
     protected Object getById(UUID id) {
+        for (Card card:cardList) {
+            if(card!=null){
+                if(card.getId().equals(id)){
+                    return card;
+                }
+            }
+        }
         return null;
     }
-
+       private int index1=0;
     public Card[] cardList(final UUID userId){
-
+        Card[] userCardList=new Card[100];
+        for (Card card : cardList) {
+            if(card!=null){
+                if(card.getUserId().equals(userId)){
+                  userCardList[index1++]=card;
+                }
+            }
+        }
         return null;
     }
 }
