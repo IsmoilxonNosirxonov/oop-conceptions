@@ -34,4 +34,16 @@ private int index=0;
         }
         return null;
     }
+
+    public  User login(String fullNmae,String password){
+        for (User user:userList) {
+            if(user!=null){
+                if(user.getFullName().equals(fullNmae) && user.getPassword().equals(password)){
+                    return user;
+                }
+            }
+        }
+        return null;
+    }
+
 }
