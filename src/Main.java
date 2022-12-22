@@ -8,7 +8,8 @@ public class Main {
       int stepcode=2;
 
       while (stepcode!=0){
-          System.out.println("1 ");
+          System.out.println("1 Add user 2 Login 0 Exit");
+
       }
 
     }

@@ -45,5 +45,10 @@ private int index=0;
         }
         return null;
     }
+    public History gitHistory(final UUID userId,final HistoryType historyType) {
+        History[] getCreditHistoryList = new History[100];
+        History[] getDebitHistoryList = new History[100];
+return null;
+    }
 
 }
