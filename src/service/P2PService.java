@@ -17,14 +17,16 @@ public class P2PService {
         for (Card card:cardList) {
          if(card.getCardNumber().equals(senderCardNumber) && card.getBalance()>amount){
              card.setBalance(card.getBalance()-amount);
+             historyList[index++]=new History(card.getId(),amount,HistoryType.CREDIT);
          }
         }
         for (Card card:cardList) {
             if(card.getCardNumber().equals(receiverCardNumber) && card.getBalance()>amount){
                 card.setBalance(card.getBalance()+amount);
+                historyList[index++]=new History(card.getId(),amount,HistoryType.DEBIT);
             }
         }
-        historyList[index++]=new History();
+
 
 
         return true;
