@@ -35,7 +35,7 @@ public class Main {
                     String password=scannerStr.nextLine();
                     currentUser=userService.login(phoneNumber,password);
                     if(currentUser==null){
-                        System.out.println("Please try again!");
+                        System.out.println("Login or password incorrect.Please try again!");
                     }
                     else{
                         int stepCode2=100;
@@ -79,14 +79,7 @@ public class Main {
                                 case 4->{
                                     System.out.println("enter Card number: ");
                                     String cardNumber=scannerStr.nextLine();
-                                    P2P myHistory[]= p2pService.myHistory(cardNumber);
-                                    int cnt=0;
-                                    for (P2P p:myHistory) {
-                                        System.out.println("================" + ++cnt+"-transaction ===========");
-                                        System.out.println("Sender Card number: "+p.getSenderCardNumber());
-                                        System.out.println("Receiver Card number: "+p.getReceiverCardNumber());
-                                        System.out.println("Debt amount: "+p.getAmount());
-                                    }
+                                    p2pService.myHistory(cardNumber);
                                 }
                             }
                         }

@@ -21,16 +21,6 @@ public class CardService extends BaseService{
         cardList[index1++]=card;
         return true;
     }
-    /*public int cardsLength(){
-        for (Card card : cardList) {
-            if(card!=null){
-                if(card.getUserid().equals(UserService.currentUserId)){
-                    length++;
-                }
-            }
-        }
-        return length;
-    }*/
     public Card[] myCards(UUID id){
         int length=0;
         for (Card card : cardList) {

@@ -2,12 +2,8 @@ package service;
 
 import model.Card;
 import model.P2P;
-import model.User;
-
-import java.util.UUID;
 
 public class P2PService extends BaseService{
-    int length=0;
     int index1=0;
     @Override
     public boolean add(Object object) {
@@ -28,25 +24,25 @@ public class P2PService extends BaseService{
         }
         return false;
     }
-    P2P myHistoryList[]=new P2P[length];
-    public P2P[] myHistory(String cardNumber){
-        for (P2P p2p : p2pList) {
-            if (p2p!=null){
-                if(p2p.getReceiverCardNumber().equals(cardNumber) || p2p.getSenderCardNumber().equals(cardNumber)){
-                    length++;
-                }
-            }
-        }
-        P2P myHistoryList[]=new P2P[length];
+    public void myHistory(String cardNumber){
         int index2=0;
+        int cnt=0;
         for (P2P p2p : p2pList) {
             if (p2p!=null){
-                if(p2p.getReceiverCardNumber().equals(cardNumber) || p2p.getSenderCardNumber().equals(cardNumber)){
-                    myHistoryList[index2++]=p2p;
+                if(p2p.getReceiverCardNumber().equals(cardNumber)){
+                    System.out.println("================" + ++cnt+"-transaction ===========");
+                    System.out.println("Sender Card number: "+p2p.getSenderCardNumber());
+                    System.out.println("Receiver Card number: "+p2p.getReceiverCardNumber());
+                    System.out.println("Debt amount: + "+p2p.getAmount());
+                }
+                if(p2p.getSenderCardNumber().equals(cardNumber)){
+                    System.out.println("================" + ++cnt+"-transaction ===========");
+                    System.out.println("Sender Card number: "+p2p.getSenderCardNumber());
+                    System.out.println("Receiver Card number: "+p2p.getReceiverCardNumber());
+                    System.out.println("Debt amount: - "+p2p.getAmount());
                 }
             }
         }
-        return myHistoryList;
     }
 
 }
