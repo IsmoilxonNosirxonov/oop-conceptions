@@ -78,7 +78,7 @@ public class Main {
                                     double amount = scannerInt.nextDouble();
                                     System.out.println("Enter your operating card number");
                                     String operatingCardNumber = scannerStr.nextLine();
-                                    if(p2pService.SendMoney(userService.userCardNumber(currentUser), receiverCardNumber, amount, operatingCardNumber)){
+                                    if(p2pService.SendMoney(receiverCardNumber, amount, operatingCardNumber)){
                                         System.out.println("Money has succesfully transfered");
                                     }else{
                                         System.out.println("Transaction error!");
@@ -87,7 +87,7 @@ public class Main {
                                 case 4 -> {
                                     for (History history : p2pService.histories) {
                                         if(history != null){
-                                            if(history.getReceiverCardNumber().equals(userService.userCardNumber(currentUser))){
+                                            if(CardService.cardOwnerByNumber(history.getReceiverCardNumber()).equals(currentUser.getFullName())){
                                                 System.out.println("Sender: " + history.getSenderCardNumber());
                                                 System.out.println("Amount: " + history.getAmount());
                                             }
@@ -97,7 +97,7 @@ public class Main {
                                 case 5 -> {
                                     for (History history : p2pService.histories) {
                                         if(history != null){
-                                            if(history.getSenderCardNumber().equals(userService.userCardNumber(currentUser))){
+                                            if(CardService.cardOwnerByNumber(history.getSenderCardNumber()).equals(currentUser.getFullName())){
                                                 System.out.println("Reciever: " + history.getReceiverCardNumber());
                                                 System.out.println("Amount: " + history.getAmount());
                                             }

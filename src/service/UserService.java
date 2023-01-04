@@ -45,14 +45,4 @@ public class UserService extends BaseService{
         }
         return null;
     }
-    public String userCardNumber(User user){
-        for (Card card : cardList) {
-            if(card != null){
-                if(card.getOwnerName().equals(user.getFullName())){
-                    return card.getCardNumber();
-                }
-            }
-        }
-        return null;
-    }
 }

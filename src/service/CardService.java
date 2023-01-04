@@ -40,4 +40,14 @@ public class CardService extends BaseService{
         }
         return null;
     }
+    public static String cardOwnerByNumber(String cardNUmber){
+        for (Card card : cardList) {
+            if(card != null){
+                if(card.getCardNumber().equals(cardNUmber)){
+                    return card.getOwnerName();
+                }
+            }
+        }
+        return null;
+    }
 }
