@@ -10,8 +10,8 @@ public abstract class BaseService {
     protected abstract boolean add(Object object);
     protected abstract Object getById(UUID id);
 
-    protected static Card[] cardList = new Card[500];
-    protected static User[] userList = new User[100];
+    public static Card[] cardList = new Card[500];
+    public static User[] userList = new User[100];
 
 
 }

@@ -1,14 +1,11 @@
 package service;
 
 import model.Card;
-import model.User;
-
 import java.util.UUID;
 
 public class CardService extends BaseService{
 
     private int index = 0;
-    private int index2 = 0;
     @Override
     public boolean add(Object object) {
         Card card = (Card) object;
@@ -35,12 +32,10 @@ public class CardService extends BaseService{
         }
         return null;
     }
-    public Card myCard(User user){
+    public static Card operatingCard(String operatingCardNumber){
         for (Card card : cardList) {
-            if(card != null){
-                if(card.getOwnerName().equals(user.getFullName())){
-                    return card;
-                }
+            if (card.getCardNumber().equals(operatingCardNumber)) {
+                return card;
             }
         }
         return null;

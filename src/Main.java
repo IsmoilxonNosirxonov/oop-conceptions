@@ -57,14 +57,28 @@ public class Main {
                                     System.out.println(cardService.add(card));
                                 }
                                 case 2 -> {
-                                    System.out.println(cardService.myCard(currentUser));
+                                    String name = currentUser.getFullName();
+                                    int cnt = 0;
+                                    for (Card card : CardService.cardList) {
+                                        if(card != null){
+                                            if(card.getOwnerName().equals(name)) {
+                                                System.out.println("========" + ++cnt + "========");
+                                                System.out.println("Card Number = " + card.getCardNumber());
+                                                System.out.println("Card Owner = " + card.getOwnerName());
+                                                System.out.println("Card Expiry Date = " + card.getExpiryDate());
+                                                System.out.println("Card Balance = " + card.getBalance());
+                                            }
+                                        }
+                                    }
                                 }
                                 case 3 -> {
                                     System.out.println("Enter receiverCardNumber");
                                     String receiverCardNumber = scannerStr.nextLine();
                                     System.out.println("Enter amount");
                                     double amount = scannerInt.nextDouble();
-                                    if(p2pService.SendMoney(userService.userCardNumber(currentUser), receiverCardNumber, amount, currentUser)){
+                                    System.out.println("Enter your operating card number");
+                                    String operatingCardNumber = scannerStr.nextLine();
+                                    if(p2pService.SendMoney(userService.userCardNumber(currentUser), receiverCardNumber, amount, operatingCardNumber)){
                                         System.out.println("Money has succesfully transfered");
                                     }else{
                                         System.out.println("Transaction error!");

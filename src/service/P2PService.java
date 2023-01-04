@@ -13,12 +13,12 @@ public class P2PService extends BaseService{
     CardService cardService = new CardService();
     public History[] histories = new History[1000];
     private int index = 0;
-    public boolean SendMoney(String senderCard, String receiverCard, double amount, User currentUser){
+    public boolean SendMoney(String senderCard, String receiverCard, double amount, String operatingCardNumber){
         for (Card card : cardList) {
             if(card != null){
-                if(receiverCard.equals(card.getCardNumber()) && cardService.myCard(currentUser).getBalance() >= amount){
+                if(receiverCard.equals(card.getCardNumber()) && cardService.operatingCard(operatingCardNumber).getBalance() >= amount){
                     card.setBalance(card.getBalance() + amount);
-                    cardService.myCard(currentUser).setBalance(cardService.myCard(currentUser).getBalance() - amount);
+                    cardService.operatingCard(operatingCardNumber).setBalance(cardService.operatingCard(operatingCardNumber).getBalance() - amount);
                     histories[index++] = new History(senderCard, receiverCard, amount);
                     return true;
                 }
