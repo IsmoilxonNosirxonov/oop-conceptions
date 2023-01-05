@@ -45,4 +45,26 @@ public class UserService extends BaseService{
         }
         return null;
     }
+    public boolean blockUser(String fullName){
+        for (User user : UserService.userList) {
+            if(user != null && user.isActive()){
+                if(user.getFullName().equals(fullName)){
+                    user.setActive(false);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public boolean unclockUser(String fullName){
+        for (User user : UserService.userList) {
+            if(user != null && !user.isActive()){
+                if(user.getFullName().equals(fullName)){
+                    user.setActive(true);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
