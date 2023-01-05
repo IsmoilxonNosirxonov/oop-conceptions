@@ -5,6 +5,7 @@ import service.CardService;
 import service.P2PService;
 import service.UserService;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -17,7 +18,12 @@ public class Main {
         int stepCode=100;
         while (stepCode!=0){
             System.out.println("1.Add User, 2.Login, 0.Exit");
-            stepCode=scannerInt.nextInt();
+            try{
+                stepCode=scannerInt.nextInt();
+            }catch (InputMismatchException e){
+                System.out.println("Please enter only number!");
+                scannerInt.nextLine();
+            }
             User currentUser=null;
             switch (stepCode){
                 case 1->{
@@ -41,7 +47,12 @@ public class Main {
                         int stepCode2=100;
                         while (stepCode2!=0){
                             System.out.println("1.Add Card, 2.My Cards, 3.Add debt Card, 4.Monitoring, 0.Exit");
-                            stepCode2=scannerInt.nextInt();
+                            try{
+                                stepCode2=scannerInt.nextInt();
+                            }catch (InputMismatchException e){
+                                System.out.println("Please enter only number!");
+                                scannerInt.nextLine();
+                            }
                             switch (stepCode2){
                                 case 1->{
                                     System.out.println("enter Card number: ");
