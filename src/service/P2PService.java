@@ -37,7 +37,7 @@ public class P2PService extends BaseService{
         int max = 0;
         int sum = 0;
         for (User user : UserService.userList) {
-            if(user != null && user.isActive()){
+            if(user != null && user.isActive() && !user.getFullName().equals(top2) && !user.getFullName().equals(top3)){
                 for (History history : histories) {
                     if (history != null){
                         if(CardService.cardOwnerByNumber(history.getSenderCardNumber()).equals(user.getFullName())){
@@ -55,7 +55,7 @@ public class P2PService extends BaseService{
         }
         max = 0;
         for (User user : UserService.userList) {
-            if(user != null && user.isActive() && !user.getFullName().equals(top1)){
+            if(user != null && user.isActive() && !user.getFullName().equals(top1) && !user.getFullName().equals(top3)){
                 for (History history : histories) {
                     if (history != null){
                         if(CardService.cardOwnerByNumber(history.getSenderCardNumber()).equals(user.getFullName())){

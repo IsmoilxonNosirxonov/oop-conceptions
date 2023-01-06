@@ -22,7 +22,7 @@ public class Main {
             System.out.println("1. Register, 2. Login, 3. Enter Admin Panel, 0. Exit");
             try {
                 stepCode = scannerInt.nextInt();
-            }catch (InputMismatchException e){
+            }catch (Exception e){
                 System.out.println("Wrong input");
                 scannerInt.nextLine();
             }
@@ -200,6 +200,9 @@ public class Main {
                                     System.out.println(p2pService.userCharts()[1]);
                                     System.out.println("******** 3rd place *********");
                                     System.out.println(p2pService.userCharts()[2]);
+                                    P2PService.charts[0] = null;
+                                    P2PService.charts[1] = null;
+                                    P2PService.charts[2] = null;
                                 }
                             }
                         }
