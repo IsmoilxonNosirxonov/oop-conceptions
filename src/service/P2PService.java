@@ -4,9 +4,6 @@ import model.Admin;
 import model.Card;
 import model.History;
 import model.User;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public class P2PService extends BaseService{

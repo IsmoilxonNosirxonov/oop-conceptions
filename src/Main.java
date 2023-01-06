@@ -5,7 +5,6 @@ import model.User;
 import service.CardService;
 import service.P2PService;
 import service.UserService;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.UUID;
@@ -25,6 +24,7 @@ public class Main {
             }catch (Exception e){
                 System.out.println("Wrong input");
                 scannerInt.nextLine();
+                continue;
             }
             switch (stepCode){
                 case 1 -> {
