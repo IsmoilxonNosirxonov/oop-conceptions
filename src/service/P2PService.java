@@ -17,7 +17,7 @@ public class P2PService extends BaseService{
     public boolean SendMoney(String receiverCard, double amount, String operatingCardNumber){
         for (Card card : cardList) {
             if(card != null){
-                if(receiverCard.equals(card.getCardNumber()) && CardService.operatingCard(operatingCardNumber).getBalance() >= (amount + amount * 0.01)){
+                if(receiverCard.equals(card.getCardNumber()) && CardService.operatingCard(operatingCardNumber) != null && CardService.operatingCard(operatingCardNumber).getBalance() >= (amount + amount * 0.01)){
                     Admin.balance += amount * 0.01;
                     card.setBalance(card.getBalance() + amount);
                     CardService.operatingCard(operatingCardNumber).setBalance(CardService.operatingCard(operatingCardNumber).getBalance() - (amount + amount * 0.01));

@@ -34,8 +34,10 @@ public class CardService extends BaseService{
     }
     public static Card operatingCard(String operatingCardNumber){
         for (Card card : cardList) {
-            if (card.getCardNumber().equals(operatingCardNumber)) {
-                return card;
+            if (card != null){
+                if (card.getCardNumber().equals(operatingCardNumber)) {
+                    return card;
+                }
             }
         }
         return null;
